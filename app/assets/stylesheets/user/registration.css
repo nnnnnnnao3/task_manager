@@ -8,13 +8,13 @@
 }
 
 .field-wrap {
-  background-color: rgb(252, 241, 200);
-  padding-bottom: 70px;
+  background-color: rgba(239, 245, 243, 0.939);
+  padding-bottom: 20px;
 
 }
 
 .input-default {
-  width: 100%;
+  width: 50%;
   margin-top: 5px;
   height: 48px;
   padding: 10px 16px 8px;
@@ -97,15 +97,15 @@
   padding: 0 5px;
 }
 
-  .register-btn {
+.register-btn {
   width: 50%;
   margin: 0 auto;
 }
 
 .register-red-btn {
   width: 100%;
-  background: #f2f7da;
-  border: 1px solid #78d677;
+  background: #deecd5;
+  border: 1px solid #8cb78b;
   color: #0f0c0c;
   line-height: 48px;
   font-size: 14px;
@@ -131,5 +131,22 @@
   border: 1px solid #ccc;
   background: #fff;
   font-size: 16px;
-
 }
+
+.filde-bottom{
+  margin-top: 30px;
+}
+/* 編集画面 */
+.cancel-label{
+margin-top: 80px;
+margin-bottom: 5px;
+}
+
+.cancel-btn{
+color: #ea352d;
+height: 30px;
+margin-bottom: 30px;
+background: #deecd5;
+border: 1px solid #8cb78b;
+}
+
