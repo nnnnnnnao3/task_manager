@@ -1,0 +1,41 @@
+<div class='field-wrap'>
+<%= render "devise/shared/second-header"%>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <div class='field-header'>
+    <h2 class='field-header-text'>
+      ログイン
+    </h2>
+  </div>
+ <div class="field-group">
+    <div class='field-text-wrap'>
+    <%= f.label :email, "メールアドレス", class: "field-text" %>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-default" %>
+  </div>
+
+  <div class="field-group">
+    <div class='field-text-wrap'>
+    <%= f.label :password, "パスワード", class: "field-text" %>
+    </div>
+    <%= f.password_field :password, autocomplete: "new-password", class:"input-default" %>
+  </div>
+  <div class="field-group">
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+    </div>
+  <div class="field-group">
+  <div class='register-btn'>
+    <%= f.submit "ログイン",class:"register-red-btn" %>
+  </div>
+    </div>
+      <%= render "devise/shared/links" %>
+        </div>
+        </div>
+
+<% end %>
+<%= render "devise/shared/second-footer"%>

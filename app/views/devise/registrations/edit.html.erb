@@ -1,0 +1,95 @@
+<div class='field-wrap'>
+<%= render "devise/shared/second-header"%>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'registration-main') do |f| %>
+   <div class='field-header'>
+    <h2 class='field-header-text'>
+      登録情報の編集
+    </h2>
+  </div>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+   <div class="field-group">
+     <div class='fild-text-wrap'>
+  <%= f.label :name, "名前", class: "field-text" %>
+    <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" , class:"input-default"%>
+  </div>
+
+ <div class="field-group">
+    <div class='field-text-wrap'>
+    <%= f.label :email, "メールアドレス", class: "field-text" %>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-default" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field-group">
+     <div class='field-text-wrap'>
+    <%= f.label :password, "パスワード(6文字以上)", class: "field-text" %> <i>(変更しない場合は空白のままにしてください)</i><br />
+       </div>
+    <%= f.password_field :password, autocomplete: "new-password", class:"input-default" %>
+       <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+      <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field-group">
+    <div class='field-text-wrap'>
+    <%= f.label :password_confirmation, "パスワード(確認用)", class: "field-text"  %>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"input-default" %>
+  </div>
+
+  <div class="field-group">
+    <div class='field-text-wrap'>
+     <%= f.label :current_password,"現在のパスワード", class: "field-text"  %> <i>(変更を確認するには現在のパスワードが必要です)</i><br />
+   </div>
+     <%= f.password_field :current_password, autocomplete: "current-password" , class:"input-default" %>
+  </div>
+
+   <div class="field-group">
+    <div class='field-text-wrap'>
+    <%= f.label :profile, "プロフィール" , class: "field-text" %>
+    </div>
+    <%= f.text_area :profile, class: :form__text, id:"user_profile" %>
+  </div>
+
+
+   <div class="field-group">
+    <div class='field-text-wrap'>
+      <label class="field-text">生年月日</label>
+    </div>
+ <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+
+  <div class='register-btn'>
+    <%= f.submit "変更する" ,class:"register-red-btn" %>
+  </div>
+<% end %>
+<div class="cancel">
+<h4 class= "cancel-label">登録情報を削除</h4>
+<div><%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?"}, method: :delete,class:"cancel-btn" %></div>
+</div>
+<%= link_to "戻る", :back %>
+ </div>
+<%= render "devise/shared/second-footer"%>
+</div>
