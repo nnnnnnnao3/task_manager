@@ -12,29 +12,29 @@
 
 ### Association
 
-- has_many :lists
+- has_many :task_items
 
-## lists テーブル
+## tasks テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| title  | string | null: false |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| title  | string     | null: false |
+| user   | references | null: false |
 
 ### Association
 
 - belongs_to :user
 - has_many :tasks
 
-## tasks テーブル
+## task_items テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| title       | string     | null: false                    |
-| user        | references | null: false, foreign_key: true |
-| list        | references | null: false, foreign_key: true |
+| task        | references | null: false, foreign_key: true |
+| completed   | boolean    | default: false                 |
 | description | text       |                                |
-| due_date    | datetime   |                                |
+| due_date    | date       |                                |
 
 ### Association
 
-- belongs_to :list
+- belongs_to :task
