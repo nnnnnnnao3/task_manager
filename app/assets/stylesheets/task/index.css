@@ -1,12 +1,52 @@
-body {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  overflow: hidden;
+/*ヘッダー*/
+.list-right{
+  display: flex;
+  list-style: none;
+  background-color: rgb(240, 250, 214);
+  opacity: 0.7;
 }
 
-body::before {
+
+.user-name {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #333333;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.logout {
+  text-decoration: none;
+  color: #333333;
+  font-family: fantasy;
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #333333;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #333333;
+}
+
+/*メイン*/
+
+.tasks-index-bg {
+  position: relative;
+  margin: 0;
+  padding: 20px;
+  height: 100vh;
+  overflow: auto; /* 長いリストに対応するため */
+  z-index: 1; /* コンテンツの前に配置 */
+}
+
+.tasks-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -15,19 +55,21 @@ body::before {
   height: 100%;
   background: url('abstract-1264071_1280.png') no-repeat center center fixed;
   background-size: cover;
-  opacity: 0.5; /* 画像の色を薄くする */
+  opacity: 0.3; /* 画像の色を薄くする */
   z-index: -1; /* コンテンツの背後に配置 */
 }
 
-.tasks-container {
-  background-color: rgba(255, 255, 255, 0.8); /* 半透明の背景色 */
-  padding: 20px;
-  border-radius: 10px;
-  position: relative;
-  z-index: 1; /* 背景画像の上に配置 */
+.top-title{
+font-family: 'Sacramento', cursive;
+font-size: 50px;
 }
 
 .task-title{
+  position: relative;
+  z-index: 2; /* 背景画像の前に配置 */
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
+  color: brown;
+  padding-left: 10px;
+  font-family: fantasy;
 }

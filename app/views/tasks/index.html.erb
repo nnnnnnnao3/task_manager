@@ -1,13 +1,20 @@
+<div class='ltop-page-header'>
+<%= render "shared/header" %>
+</div>
 <div class="tasks-container">
-<h1 >Tasks Manager</h1>
-<%= link_to 'New Task', new_task_path,class:"task-title" %>
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-      <%= link_to task.title, task %>
-      <%= link_to 'Edit', edit_task_path(task) %>
-      <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  <% end %>
-</ul>
+<h1 class="top-title">Tasks Manager</h1>
+<% if user_signed_in? %>
+  <p><%= link_to '●New Task●', new_task_path,class:"task-title" %></p>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li>
+        <%= link_to task.title, edit_task_path(task) %>
+        <%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <%= link_to 'Sign up', new_user_registration_path %> |
+  <%= link_to 'Login', new_user_session_path %>
+<% end %>
 </div>
