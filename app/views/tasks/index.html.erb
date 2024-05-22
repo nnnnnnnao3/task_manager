@@ -1,6 +1,6 @@
-<!-- app/views/tasks/index.html.erb -->
-<h1>Tasks</h1>
-<%= link_to 'New Task', new_task_path %>
+<div class="tasks-container">
+<h1 >Tasks Manager</h1>
+<%= link_to 'New Task', new_task_path,class:"task-title" %>
 <ul>
   <% @tasks.each do |task| %>
     <li>
@@ -10,3 +10,4 @@
     </li>
   <% end %>
 </ul>
+</div>
