@@ -1,0 +1,47 @@
+<div class="tasks-container">
+<div class="task-form">
+<%= form_with(model: task, local: true) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- タスクのタイトル入力欄 -->
+  <div class="field-title">
+    <%= form.label :title, 'Title' %>
+    <%= form.text_field :title, class: "title-form" %>
+  </div>
+
+  <!-- チェックボックスとタスクの入力欄のリスト -->
+  <div id="tasks-list" class="task-list">
+    <%= form.fields_for :task_items do |task_item_form| %>
+      <div class="task-item">
+        <%= task_item_form.check_box :completed, class: "check-box" %>
+        <%= task_item_form.text_field :description, class: "form-text" %>
+        <%= link_to 'メモ', '#', class: 'memo-button' %>
+        <%= link_to '削除', '#', class: 'delete-task-button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- 新しいタスクの追加ボタン -->
+  <div class="actions">
+    <%= link_to 'タスクを追加', '#', id: 'add-task-button' %>
+  </div>
+
+  <!-- フォームの送信ボタン -->
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<!-- 戻るボタン -->
+<p><%= link_to '戻る', tasks_path %></p>
+</div>
+</div>
