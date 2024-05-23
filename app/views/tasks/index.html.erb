@@ -1,7 +1,8 @@
-<div class='ltop-page-header'>
+<div class='top-page-header'>
 <%= render "shared/header" %>
 </div>
-<div class="tasks-container">
+<div class="tasks-index-bg">
+  <div class="bg-overlay"></div> <!-- 背景画像のオーバーレイ -->
 <% if user_signed_in? %>
   <p><%= link_to '●New Task●', new_task_path,class:"task-title" %></p>
   <ul>

@@ -47,19 +47,17 @@ a {
   color: #333333;
 }
 
-/*メイン*/
-
-.tasks-index-bg {
+/* 背景画像を設定 */
+.tasks-index-bg, .tasks-new-bg {
   position: relative;
   margin: 0;
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   overflow: auto; /* 長いリストに対応するため */
-  z-index: 1; /* コンテンツの前に配置 */
 }
 
-.tasks-container::before {
-  content: "";
+/* 背景画像を表示するオーバーレイ要素 */
+.bg-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -70,6 +68,10 @@ a {
   opacity: 0.2; /* 画像の色を薄くする */
   z-index: -1; /* コンテンツの背後に配置 */
 }
+
+
+
+/*メイン*/
 
 .top-title{
 font-family: 'Sacramento', cursive;

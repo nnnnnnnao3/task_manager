@@ -1,0 +1,44 @@
+.field-title{
+  font-size: 40px;
+  font-family: fantasy;
+  display: flex;
+  align-content: center;
+  padding-bottom: 20px;
+}
+
+.title-form{
+  height: 30px;
+  border-radius: 10px;
+}
+
+.task-item{
+padding-left: 10px;
+}
+
+.task-form{
+  padding: 40px 20px;
+
+}
+
+.check-box{
+  border-radius: 10px;
+}
+
+.form-text{
+  height: 20px;
+  width: 200px;
+}
+
+.memo-button, .delete-task-button {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 5px;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(111, 110, 110);
+  background-color: #fbdd91;
+  border: 1px solid #fbdd91;
+  border-radius: 4px;
+  cursor: pointer;
+}
