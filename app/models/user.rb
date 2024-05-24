@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :tasks
 
   validates :name, presence: true
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: :password_complexity }
+
 end
