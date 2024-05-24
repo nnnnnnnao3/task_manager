@@ -32,12 +32,12 @@
 
   <!-- 新しいタスクの追加ボタン -->
   <div class="actions">
-    <%= link_to 'タスクを追加', '#', id: 'add-task-button' %>
+    <%= link_to 'タスクを追加', '#', id: 'add-task-button',class:"task-addition" %>
   </div>
 
   <!-- フォームの送信ボタン -->
   <div class="actions">
-    <%= form.submit %>
+<%= form.submit "Save", class: "save-btn" %>
   </div>
 <% end %>
 
