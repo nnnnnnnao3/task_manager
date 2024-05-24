@@ -42,3 +42,19 @@ padding-left: 10px;
   border-radius: 4px;
   cursor: pointer;
 }
+
+.save-btn{
+  font-family: fantasy;
+  background-color: rgb(181, 243, 222);
+  border-style: none;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer; 
+  height: 25px;
+}
+
+.task-addition{
+  font-family: "Yomogi", cursive;
+  font-weight: 400;
+  font-style: normal;
+}

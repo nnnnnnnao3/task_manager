@@ -27,9 +27,29 @@ document.addEventListener("turbo:load", () => {
         taskItem.remove();
       });
 
- 
+      taskItem.querySelector('.memo-button').addEventListener('click', (e) => {
+        e.preventDefault();
+        const taskId = taskItem.querySelector('.memo-button').dataset.taskId;
+        // 詳細説明ボタンの動作をここに追加
+        // 編集ページへのリンクを処理するコードを追加
+      });
     });
   }
 
+  document.querySelectorAll('.delete-task-button').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      button.closest('.task-item').remove();
+    });
+  });
 
+  document.querySelectorAll('.memo-button').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      // 詳細説明ボタンの動作をここに追加
+      const taskId = button.dataset.taskId;
+      // URLを構築してページ遷移
+      window.location.href = `/tasks/${taskId}/task_items/${button.closest('.task-item').dataset.itemId}/edit`;
+    });
+  });
 });
