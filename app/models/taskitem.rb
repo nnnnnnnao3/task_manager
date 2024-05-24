@@ -1,0 +1,2 @@
+class Taskitem < ApplicationRecord
+end

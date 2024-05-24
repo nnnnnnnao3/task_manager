@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_21_062343) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_24_083734) do
+  create_table "taskitems", charset: "utf8", force: :cascade do |t|
+    t.string "memo"
+    t.boolean "completed", default: false
+    t.date "due_date"
+    t.bigint "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_taskitems_on_task_id"
+  end
+
   create_table "tasks", charset: "utf8", force: :cascade do |t|
     t.string "title", null: false
     t.bigint "user_id", null: false
@@ -34,5 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_21_062343) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "taskitems", "tasks"
   add_foreign_key "tasks", "users"
 end
