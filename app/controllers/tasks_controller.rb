@@ -9,13 +9,17 @@ class TasksController < ApplicationController
   end
 
   def create
-    task_params_with_json = task_params
-    task_params_with_json[:description] = build_json_description(params[:task][:completed], params[:task][:description])
-    @task = current_user.tasks.build(task_params_with_json)
-    if @task.save
-      redirect_to tasks_path, notice: 'Task was successfully created.'
-    else
-      render :new
-    end
+    @task = Task.create(task_params)
+    Taskitem.create(taskitem_params)
+    redirect_to root_path
+end
+private
+
+def task_params
+  params.permit(:task).merge(user_id: current_user.id)
+end
+
+def address_params
+  params.permit(:memo, :completed, :due_date).merge(task_id: @task.id)
 end
 end

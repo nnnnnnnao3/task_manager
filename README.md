@@ -16,24 +16,24 @@
 
 ## tasks テーブル
 
-| Column | Type       | Options     |
-| ------ | ---------- | ----------- |
-| title  | string     | null: false |
-| user   | references | null: false |
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| task_name | string     | null: false |
+| user      | references | null: false |
 
 ### Association
 
 - belongs_to :user
-- has_many :tasks
+- has_many :task_items
 
 ## task_items テーブル
 
-| Column      | Type       | Options                        |
-| ----------- | ---------- | ------------------------------ |
-| task        | references | null: false, foreign_key: true |
-| completed   | boolean    | default: false                 |
-| description | text       |                                |
-| due_date    | date       |                                |
+| Column    | Type    | Options        |
+| --------- | ------- | -------------- |
+| completed | boolean | default: false |
+| task      | string  | null: false    |
+| memo      | string  |                |
+| due_date  | date    |                |
 
 ### Association
 
