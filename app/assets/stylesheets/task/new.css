@@ -11,9 +11,6 @@
   border-radius: 10px;
 }
 
-.task-item{
-padding-left: 10px;
-}
 
 .task-form{
   padding: 40px 20px;
@@ -29,7 +26,7 @@ padding-left: 10px;
   width: 200px;
 }
 
-.memo-button, .delete-task-button {
+.memo-button,.image-button,.due-date-button,.delete-task-button{
   display: inline-block;
   padding: 5px 10px;
   margin: 5px;
@@ -57,4 +54,14 @@ padding-left: 10px;
   font-family: "Yomogi", cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+.memo-field,.image-field,.due-date-field{
+  padding-left: 30px;
+  padding-bottom: 10px;
+}
+
+.task-item-fields{
+  display: flex;
+  align-items: center;
 }
