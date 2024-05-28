@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   //add-task-button(追加ボタン)をaddTaskButtonに格納
   const addTaskButton = document.getElementById('add-task-button');
   //tasks-listの要素(チェックボックスとタスクの入力欄のリスト)をtasksListに格納
@@ -17,7 +17,7 @@ document.addEventListener("turbolinks:load", () => {
     <a href="#" class="image-button">画像</a>
     <a href="#" class="due-date-button">期日</a>
     <a href="#" class="delete-task-button">削除</a>
-
+    <div class="task-item-fields">
     <div class="memo-field" style="display: none;">
       <textarea name="task[task_items_attributes][][memo]" class="memo-text"></textarea>
     </div>
@@ -26,6 +26,7 @@ document.addEventListener("turbolinks:load", () => {
     </div>
     <div class="due-date-field" style="display: none;">
       <input type="date" name="task[task_items_attributes][][due_date]" class="due-date-input" />
+    </div>
     </div>
     `;
     //親要素(tasksList)に子要素(taskItem)を追加
