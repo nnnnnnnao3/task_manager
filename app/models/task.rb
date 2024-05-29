@@ -1,6 +1,5 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many_attached :images
-
+  has_many :task_items, dependent: :destroy
   validates :title, presence: true
 end
