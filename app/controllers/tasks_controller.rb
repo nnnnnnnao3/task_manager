@@ -8,18 +8,21 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  def create
-    @task = Task.create(task_params)
-    Taskitem.create(taskitem_params)
+
+def create
+  @task = Task.new(task_params)
+  if @task.save
     redirect_to root_path
+  else
+    render :new, status: :unprocessable_entity
+  end
 end
+
 private
 
 def task_params
-  params.permit(:task).merge(user_id: current_user.id)
+  params.require(:task).permit(:title, task_items_attributes: [:id, :task_name, :completed, :memo, :due_date, :image])
 end
 
-def address_params
-  params.permit(:memo, :completed, :due_date).merge(task_id: @task.id)
-end
+
 end

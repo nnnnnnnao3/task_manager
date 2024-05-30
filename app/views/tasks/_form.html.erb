@@ -1,11 +1,10 @@
 <div class="tasks-container">
 <div class="task-form">
-<%= form_with(model: task, local: true) do |form| %>
-  <% if task.errors.any? %>
+    <%= form_with model: @task, url: tasks_path, local: true do |f| %>
+  <% if @task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
       <ul>
-        <% task.errors.full_messages.each do |message| %>
+            <% @task.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -14,13 +13,13 @@
 
   <!-- タスクのタイトル入力欄 -->
   <div class="field-title">
-    <%= form.label :title, 'TaskName' %>
-    <%= form.text_field :title, class: "title-form" %>
+    <%= f.label :title, 'Task Name' %>
+    <%= f.text_field :title, class: "title-form" %>
   </div>
 
   <!-- チェックボックスとタスクの入力欄のリスト -->
   <div id="tasks-list" class="task-list">
-    <%= form.fields_for :task_items do |task_item_form| %>
+    <%= f.fields_for :task_items do |task_item_form| %>
       <div class="task-item">
         <%= task_item_form.check_box :completed, class: "check-box" %>
         <%= task_item_form.text_field :description, class: "form-text" %>
@@ -45,12 +44,12 @@
 
   <!-- 新しいタスクの追加ボタン -->
   <div class="actions">
-    <%= link_to '＋', '#', id: 'add-task-button',class:"addition-button" %>
+        <%= link_to '＋', '#', id: 'add-task-button', class: "addition-button" %>
   </div>
 
   <!-- フォームの送信ボタン -->
   <div class="actions">
-<%= form.submit "Save", class: "save-btn" %>
+<%= f.submit "Save", class: "save-btn" %>
   </div>
 <% end %>
 

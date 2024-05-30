@@ -40,12 +40,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_150829) do
   end
 
   create_table "taskitems", charset: "utf8", force: :cascade do |t|
-    t.string "task", null: false
-    t.string "memo"
     t.boolean "completed", default: false
+    t.string "task_name"
+    t.string "memo"
     t.date "due_date"
+    t.bigint "task_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_taskitems_on_task_id"
   end
 
   create_table "tasks", charset: "utf8", force: :cascade do |t|
@@ -73,5 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_28_150829) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "taskitems", "tasks"
   add_foreign_key "tasks", "users"
 end
